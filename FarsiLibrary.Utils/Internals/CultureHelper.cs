@@ -10,9 +10,11 @@ namespace FarsiLibrary.Utils.Internals
     /// </summary>
     internal static class CultureHelper
     {
+#if(!SILVERLIGHT)
+        private static CultureInfo internalfaCulture;
+#endif
         private static CultureInfo faCulture;
         private static CultureInfo arCulture;
-        private static CultureInfo internalfaCulture;
         private static readonly CultureInfo neuCulture = CultureInfo.InvariantCulture;
         private static readonly PersianCalendar pc = new PersianCalendar();
         private static readonly HijriCalendar hc = new HijriCalendar();
@@ -89,6 +91,7 @@ namespace FarsiLibrary.Utils.Internals
             }
         }
 
+#if(!SILVERLIGHT)
         /// <summary>
         /// Instance of Persian Culture with correct date formatting.
         /// </summary>
@@ -102,6 +105,7 @@ namespace FarsiLibrary.Utils.Internals
                 return internalfaCulture;
             }
         }
+#endif
 
         /// <summary>
         /// Instance of Neutral culture
@@ -120,8 +124,17 @@ namespace FarsiLibrary.Utils.Internals
         public static int GetDayOfWeek(DateTime dt, Calendar calendar)
         {
             var calendarType = calendar.GetType();
-            if (calendarType == typeof (PersianCalendar) ||
-                calendarType == typeof (System.Globalization.PersianCalendar))
+            var suitableType = false;
+
+            if (calendarType == typeof(PersianCalendar))
+                suitableType = true;
+
+#if(!SILVERLIGHT)
+            if (calendarType == typeof(System.Globalization.PersianCalendar))
+                suitableType = true;
+#endif
+
+            if(suitableType)
             {
                 return PersianDateTimeFormatInfo.GetDayIndex(dt.DayOfWeek);
             }

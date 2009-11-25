@@ -34,7 +34,7 @@ namespace FarsiLibrary.Utils
             //Is jalali year a leap year?
             int tmp;
 
-            Math.DivRem(jyear, 33, out tmp);
+            jyear.DivRem(33, out tmp);
             if ((tmp == 1) || (tmp == 5) || (tmp == 9) || (tmp == 13) || (tmp == 17) || (tmp == 22) || (tmp == 26) || (tmp == 30))
             {
                 return 1;
@@ -63,9 +63,9 @@ namespace FarsiLibrary.Utils
             //Is gregorian year a leap year?
             int Mod4, Mod100, Mod400;
 
-            Math.DivRem(gyear, 4, out Mod4);
-            Math.DivRem(gyear, 100, out Mod100);
-            Math.DivRem(gyear, 400, out Mod400);
+            gyear.DivRem(4, out Mod4);
+            gyear.DivRem(100, out Mod100);
+            gyear.DivRem(400, out Mod400);
 
             if (((Mod4 == 0) && (Mod100 != 0)) || (Mod400 == 0))
             {

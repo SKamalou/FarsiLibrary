@@ -12,8 +12,8 @@ namespace FarsiLibrary.Utils
         /// <returns></returns>
         public static PersianDate ToPersianDate(this DateTime dateTime)
         {
-            if (dateTime < CultureHelper.PersianCulture.Calendar.MinSupportedDateTime ||
-               dateTime > CultureHelper.PersianCulture.Calendar.MaxSupportedDateTime)
+            if (dateTime < CultureHelper.PersianCalendar.MinSupportedDateTime ||
+               dateTime > CultureHelper.PersianCalendar.MaxSupportedDateTime)
             {
                 return null;
             }

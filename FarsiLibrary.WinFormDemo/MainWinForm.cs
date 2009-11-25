@@ -41,6 +41,9 @@ namespace FarsiLibrary.WinFormDemo
 
             foreach (var demo in demos)
             {
+                if (demo.Name == "DevExpressIntegration")
+                    continue; //TODO: This version is not supported by .NET FX 4.0
+
                 var demoForm = Activator.CreateInstance(demo) as IDemoPage;
                 RegisterDemos(demoForm);
             }

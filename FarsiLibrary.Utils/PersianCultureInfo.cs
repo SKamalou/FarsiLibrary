@@ -40,8 +40,8 @@ namespace FarsiLibrary.Utils
             : base("fa-IR", false)
         {
             calendar = new PersianCalendar();
-            systemCalendar = new System.Globalization.PersianCalendar();
             format = CreateDateTimeFormatInfo();
+            systemCalendar = new System.Globalization.PersianCalendar();
             SetCalendar();
         }
 
@@ -53,15 +53,15 @@ namespace FarsiLibrary.Utils
         {
             ReflectionHelper.SetField(format, CultureFieldNames.Calendar, systemCalendar);
 
-            var cultureTable = ReflectionHelper.GetField(format, CultureFieldNames.CultureTableRecord);
-            var isReadonly = ReflectionHelper.GetField(this, CultureFieldNames.IsReadonly);
+            //var isReadonly = ReflectionHelper.GetField(this, CultureFieldNames.IsReadonly);
+            //var cultureTable = ReflectionHelper.GetField(format, CultureFieldNames.CultureTableRecord);
             var cultureId = ReflectionHelper.GetProperty(systemCalendar, CultureFieldNames.ID);
             
-            ReflectionHelper.InvokeMethod(cultureTable, CultureFieldNames.UseCurrentCalendar, cultureId);
+            //ReflectionHelper.InvokeMethod(cultureTable, CultureFieldNames.UseCurrentCalendar, cultureId);
 
             base.DateTimeFormat = format;
         }
-
+      
         private DateTimeFormatInfo CreateDateTimeFormatInfo()
         {
             if (format == null)
@@ -73,7 +73,8 @@ namespace FarsiLibrary.Utils
                                  AbbreviatedMonthNames = PersianDateTimeFormatInfo.AbbreviatedMonthNames,
                                  AMDesignator = PersianDateTimeFormatInfo.AMDesignator,
                                  //CalendarWeekRule = CalendarWeekRule.FirstFullWeek,
-                                 DateSeparator = PersianDateTimeFormatInfo.DateSeparator,
+                                 //DateSeparator = PersianDateTimeFormatInfo.DateSeparator,
+                                 //TimeSeparator = PersianDateTimeFormatInfo.TimeSeparator,
                                  DayNames = PersianDateTimeFormatInfo.DayNames,
                                  FirstDayOfWeek = PersianDateTimeFormatInfo.FirstDayOfWeek,
                                  FullDateTimePattern = PersianDateTimeFormatInfo.FullDateTimePattern,
@@ -86,7 +87,6 @@ namespace FarsiLibrary.Utils
                                  ShortDatePattern = PersianDateTimeFormatInfo.ShortDatePattern,
                                  ShortestDayNames = PersianDateTimeFormatInfo.ShortestDayNames,
                                  ShortTimePattern = PersianDateTimeFormatInfo.ShortTimePattern,
-                                 TimeSeparator = PersianDateTimeFormatInfo.TimeSeparator,
                                  YearMonthPattern = PersianDateTimeFormatInfo.YearMonthPattern
                              };
 

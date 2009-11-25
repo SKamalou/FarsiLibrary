@@ -16,7 +16,7 @@
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-		<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
 		<BuildDependsOn>Init;BeforeBuild;Build;AfterBuild</BuildDependsOn>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>

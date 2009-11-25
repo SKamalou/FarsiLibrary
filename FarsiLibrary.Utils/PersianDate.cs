@@ -26,11 +26,15 @@ namespace FarsiLibrary.Utils
     /// </example>
     /// <seealso cref="PersianDateConverter"/>
     /// </summary>
+#if(!SILVERLIGHT)
     [TypeConverter("FarsiLibrary.Win.Design.PersianDateTypeConverter")]
     [Serializable]
+#endif
     public sealed class PersianDate : 
         IFormattable,
+#if!SILVERLIGHT 
         ICloneable, 
+#endif
         IComparable, 
         IComparable<PersianDate>,
         IComparer, 
@@ -51,10 +55,14 @@ namespace FarsiLibrary.Utils
         private readonly PersianDateTimeFormatInfo formatting;
         private static readonly PersianCalendar pc;
 
+#if(!SILVERLIGHT)
         [NonSerialized]
+#endif
         public static DateTime MinValue;
 
+#if(!SILVERLIGHT)
         [NonSerialized]
+#endif
         public static DateTime MaxValue;
 
         #endregion
@@ -76,28 +84,12 @@ namespace FarsiLibrary.Utils
         #region Props
 
         /// <summary>
-        /// AMDesignator.
-        /// </summary>
-        [Obsolete("Use PersianDateTimeFormatInfo.AMDesignator property instead.")]
-        public string AMDesignator
-        {
-            get { return PersianDateTimeFormatInfo.AMDesignator; }
-        }
-
-        /// <summary>
-        /// PMDesignator.
-        /// </summary>
-        [Obsolete("Use PersianDateTimeFormatInfo.PMDesignator property instead.")]
-        public string PMDesignator
-        {
-            get { return PersianDateTimeFormatInfo.PMDesignator; }
-        }
-
-        /// <summary>
         /// Current date/time in PersianDate format.
         /// </summary>
+#if(!SILVERLIGHT)
         [Browsable(false)]
         [Description("Current date/time in PersianDate format")]
+#endif
         public static PersianDate Now
         {
             get { return PersianDateConverter.ToPersianDate(DateTime.Now); }
@@ -106,8 +98,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Year value of PersianDate.
         /// </summary>
+#if(!SILVERLIGHT)
         [Description("Year value of PersianDate")]
         [NotifyParentProperty(true)]
+#endif
         public int Year
         {
             get { return year; }
@@ -121,8 +115,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Month value of PersianDate.
         /// </summary>
+#if(!SILVERLIGHT)
         [Description("Month value of PersianDate")]
         [NotifyParentProperty(true)]
+#endif
         public int Month
         {
             get { return month; }
@@ -136,8 +132,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Day value of PersianDate.
         /// </summary>
+#if(!SILVERLIGHT)
         [Description("Day value of PersianDate")]
         [NotifyParentProperty(true)]
+#endif
         public int Day
         {
             get { return day; }
@@ -151,8 +149,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Hour value of PersianDate.
         /// </summary>
+#if(!SILVERLIGHT)
         [Description("Hour value of PersianDate")]
         [NotifyParentProperty(true)]
+#endif
         public int Hour
         {
             get { return hour; }
@@ -166,8 +166,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Minute value of PersianDate.
         /// </summary>
+#if(!SILVERLIGHT)
         [Description("Minute value of PersianDate")]
         [NotifyParentProperty(true)]
+#endif
         public int Minute
         {
             get { return minute; }
@@ -181,8 +183,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Second value of PersianDate.
         /// </summary>
+#if(!SILVERLIGHT)
         [Description("Second value of PersianDate")]
         [NotifyParentProperty(true)]
+#endif
         public int Second
         {
             get { return second; }
@@ -196,8 +200,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Millisecond value of PersianDate.
         /// </summary>
+#if(!SILVERLIGHT)
         [Description("Millisecond value of PersianDate")]
         [NotifyParentProperty(true)]
+#endif
         public int Millisecond
         {
             get { return millisecond; }
@@ -211,8 +217,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Time value of PersianDate in TimeSpan format.
         /// </summary>
+#if(!SILVERLIGHT)
         [Browsable(false)]
         [Description("Time value of PersianDate in TimeSpan format.")]
+#endif
         public TimeSpan Time
         {
             get { return time; }
@@ -233,8 +241,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Localized name of PersianDate months.
         /// </summary>
+#if(!SILVERLIGHT)
         [Browsable(false)]
         [Description("Localized name of PersianDate months")]
+#endif
         public string LocalizedMonthName
         {
             get { return PersianMonthNames.Default[month - 1]; }
@@ -243,8 +253,10 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Weekday names of this instance in localized format.
         /// </summary>
+#if(!SILVERLIGHT)
         [Browsable(false)]
         [Description("Weekday names of this instance in localized format.")]
+#endif
         public string LocalizedWeekDayName
         {
             get { return PersianDateConverter.DayOfWeek(this); }
@@ -253,14 +265,18 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Number of days in this month.
         /// </summary>
+#if(!SILVERLIGHT)
         [Browsable(false)]
         [Description("Number of days in this month")]
+#endif
         public int MonthDays
         {
             get { return PersianDateConverter.MonthDays(month); }
         }
 
+#if(!SILVERLIGHT)
         [Browsable(false)]
+#endif
         public bool IsNull
         {
             get { return Year <= MinValue.Year && Month <= MinValue.Month && Day <= MinValue.Day; }
@@ -526,7 +542,12 @@ namespace FarsiLibrary.Utils
             {
                 try
                 {
+#if(!SILVERLIGHT)
                     DateTime dt = DateTime.Parse(value, CultureHelper.PersianCulture, DateTimeStyles.None);
+#else 
+                    //TODO: this is wrong, but there's no PersianCalendar in SL
+                    DateTime dt = DateTime.Parse(value, CultureHelper.FarsiCulture, DateTimeStyles.None);
+#endif
 
                     var year = pc.GetYear(dt);
                     var month = pc.GetMonth(dt);
@@ -799,11 +820,12 @@ namespace FarsiLibrary.Utils
 
         #region ICloneable Members
 
+#if(!SILVERLIGHT)
         object ICloneable.Clone()
         {
             return new PersianDate(Year, Month, Day, Hour, Minute, Second, Millisecond);
         }
-
+#endif
         #endregion
 
         #region Implicit Casting

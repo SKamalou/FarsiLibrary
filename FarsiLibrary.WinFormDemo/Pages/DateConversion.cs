@@ -21,11 +21,18 @@ namespace FarsiLibrary.WinFormDemo.Pages
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            lblTodayGregorian.Text = DateTime.Now.ToString("d", CultureHelper.NeutralCulture);
-            lblTodayPersian.Text = DateTime.Now.ToPersianDate().ToString("d");
-            lblTodayPersianDate.Text = PersianDate.Now.ToWritten();
-            lblPersianDateCtor.Text = new PersianDate(DateTime.Now).ToString("G");
-            lblDirectCast.Text = ((PersianDate) DateTime.Now).ToWritten();
+            if (!dp.SelectedDateTime.HasValue)
+                return;
+
+            DateTime dt = dp.SelectedDateTime.Value;
+            PersianDate pd = dt.ToPersianDate();
+
+            lblTodayGregorian.Text = dt.ToString("d", CultureHelper.NeutralCulture);
+            lblTodayPersian.Text = dt.ToPersianDate().ToString("d");
+            lblTodayPersianDate.Text = pd.ToWritten();
+            lblPersianDateCtor.Text = new PersianDate(dt).ToString("G");
+            lblDirectCast.Text = ((PersianDate)dt).ToWritten();
+            lblConvertInvariant.Text = dt.ToString(CultureInfo.InvariantCulture);
         }
 
         #endregion

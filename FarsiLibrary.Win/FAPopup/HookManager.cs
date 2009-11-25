@@ -1,15 +1,16 @@
 using System;
 using System.Collections;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Security.Permissions;
 using System.Windows.Forms;
 using FarsiLibrary.Win.Events;
 
 namespace FarsiLibrary.Win.FAPopup
 {
-    [UIPermission(SecurityAction.Assert, Window = UIPermissionWindow.AllWindows, Clipboard = UIPermissionClipboard.OwnClipboard)]
-    [ReflectionPermission(SecurityAction.Assert, Flags = ReflectionPermissionFlag.AllFlags)]
-    [SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode | SecurityPermissionFlag.ControlAppDomain | SecurityPermissionFlag.ControlThread)]
+    [UIPermission(SecurityAction.Assert, Window = UIPermissionWindow.AllWindows, Clipboard = UIPermissionClipboard.OwnClipboard, Unrestricted = true)]
+    [ReflectionPermission(SecurityAction.Assert, Flags = ReflectionPermissionFlag.MemberAccess, MemberAccess = true, Unrestricted = true)]
+    [SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode | SecurityPermissionFlag.ControlAppDomain | SecurityPermissionFlag.ControlThread, Unrestricted = true)]
     internal class HookManager
     {
         #region Fields
@@ -30,7 +31,7 @@ namespace FarsiLibrary.Win.FAPopup
             hookHash = new Hashtable();
             HookControllers = new ArrayList();
         }
-        
+
         ~HookManager()
         {
             RemoveHooks();
@@ -281,6 +282,7 @@ namespace FarsiLibrary.Win.FAPopup
         #region Native Methods
 
         [DllImport("kernel32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
+        [SecurityCritical]
         public static extern int GetCurrentThreadId();
 
         [StructLayout(LayoutKind.Sequential)]
