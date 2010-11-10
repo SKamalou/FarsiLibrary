@@ -41,7 +41,6 @@
     <Compile Include="PersianDateExtensionTests.cs" />
     <Compile Include="PersianDateTest.cs" />
     <Compile Include="PersianDateTimeFormatTests.cs" />
-    <Compile Include="PrettyFormatterTests.cs" />
     <Compile Include="ToWordConversionTest.cs" />
   </ItemGroup>
   <ItemGroup>
