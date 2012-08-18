@@ -1,7 +1,13 @@
-bin
-obj
+[Dd]ebug/
+[Rr]elease/
+[Bb]in
+[Oo]bj
 _ReSharper.*
 *.csproj.user
 *.resharper
 *.resharper.user
 *.suo
+*.user
+*.DS_Store
+[Tt]humbs.db
+
