@@ -60,5 +60,11 @@
   <PropertyGroup>
     <ProjectRefType>WPF</ProjectRefType>
   </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\FarsiLibrary.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
   <Import Project="CSharp.targets" />
 </Project>

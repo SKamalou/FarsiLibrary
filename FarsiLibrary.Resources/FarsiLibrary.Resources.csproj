@@ -11,6 +11,8 @@
     <AssemblyName>FarsiLibrary.Resources</AssemblyName>
     <RootNamespace>FarsiLibrary.Resources</RootNamespace>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Solution Items\CommonAssemblyInfo.cs">
@@ -28,8 +30,17 @@
   <PropertyGroup>
     <ProjectRefType>Win</ProjectRefType>
   </PropertyGroup>
-  <Import Project="CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>copy "$(SolutionDir)FarsiLibrary.snk" "C:\FarsiLibrary.snk" /y</PreBuildEvent>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\FarsiLibrary.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="CSharp.targets" />
 </Project>

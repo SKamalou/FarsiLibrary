@@ -18,7 +18,7 @@
     <TargetZone>Internet</TargetZone>
     <GenerateManifests>true</GenerateManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
     <RootNamespace>FarsiLibrary.LiveSamples</RootNamespace>
     <AssemblyName>FarsiLibrary.LiveSamples</AssemblyName>
     <StartupObject>FarsiLibrary.LiveSamples.App</StartupObject>
@@ -202,6 +202,9 @@
   </ItemGroup>
   <PropertyGroup>
     <ProjectRefType>WPF</ProjectRefType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\FarsiLibrary.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="CSharp.targets" />
   <PropertyGroup>

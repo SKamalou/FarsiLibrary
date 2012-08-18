@@ -15,7 +15,7 @@
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
 	<BuildDependsOn>Init;BeforeBuild;Build;AfterBuild</BuildDependsOn>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -59,7 +59,7 @@
 
   <Target Name="CopyKeyFile">
     <Message Text="Copying key file @(KeyFile) too root driver c:\" />
-    <Copy SourceFiles="$(SolutionDir)\FarsiLibrary.snk" DestinationFiles="C:\FarsiLibrary.snk" />
+<!--     <Copy SourceFiles="$(SolutionDir)\FarsiLibrary.snk" DestinationFiles="C:\FarsiLibrary.snk" />-->
   </Target>
 
   <Target Name="BuildSolution" DependsOnTargets="DisplayMessages;CopyKeyFile">

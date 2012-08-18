@@ -5,8 +5,6 @@ using FarsiLibrary.Resources;
 using System.Security;
 
 [assembly: CLSCompliant(true)]
-[assembly: AssemblyKeyFile(@"C:\FarsiLibrary.snk")]
-
 [assembly: AssemblyVersion(AssemblyNames.Version)]
 [assembly: AssemblyDescription(AssemblyNames.Description)]
 [assembly: AssemblyCopyright(AssemblyNames.AssemblyCopyright)]

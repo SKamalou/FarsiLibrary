@@ -11,6 +11,8 @@
     <AssemblyName>FarsiLibrary.Utils</AssemblyName>
     <RootNamespace>FarsiLibrary.Utils</RootNamespace>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Solution Items\CommonAssemblyInfo.cs">
@@ -74,6 +76,18 @@
   <ItemGroup />
   <PropertyGroup>
     <ProjectRefType>Win</ProjectRefType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\FarsiLibrary.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <Import Project="CSharp.targets" />
 </Project>

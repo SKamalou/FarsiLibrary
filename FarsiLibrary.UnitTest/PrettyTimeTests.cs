@@ -85,13 +85,13 @@ namespace FarsiLibrary.UnitTest
             }
         }
 
-        [TestCase(-2, "1 year ago", "en-US")]
-        [TestCase(2, "2 years from now", "en-US")]
+        [TestCase(-2, "2 years ago", "en-US")]
+        [TestCase(2, "1 year from now", "en-US")]
         [TestCase(50, "5 decades from now", "en-US")]
         [TestCase(100, "10 decades from now", "en-US")]
         [TestCase(101, "1 century from now", "en-US")]
-        [TestCase(-2, "يک سال قبل", "fa-IR")]
-        [TestCase(2, "دو سال بعد", "fa-IR")]
+        [TestCase(-2, "دو سال قبل", "fa-IR")]
+        [TestCase(2, "يک سال بعد", "fa-IR")]
         [TestCase(50, "پنج دهه بعد", "fa-IR")]
         [TestCase(100, "ده دهه بعد", "fa-IR")]
         [TestCase(101, "يک قرن بعد", "fa-IR")]
@@ -143,10 +143,10 @@ namespace FarsiLibrary.UnitTest
         [Test]
         public void Can_Convert_Dates_Using_ExtensionMethod()
         {
-            var date = DateTime.Now;
+            var date = DateTime.Now.AddSeconds(-10);
             var pretty = date.ToPrettyTime();
 
-            Assert.AreEqual("moments from now", pretty);
+            Assert.AreEqual("moments ago", pretty);
         }
     }
 }
