@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="FarsiLibrary.Win8Demo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FarsiLibrary.Win8Demo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Hello Farsi Library!" />
+        
+        <Button ClickMode="Press" Click="ShowDate" Content="Show Current Date" />
+        <TextBlock x:Name="currentdate" Height="400" Width="600" Margin="10" />
+        </StackPanel>
+    </Grid>
+</Page>

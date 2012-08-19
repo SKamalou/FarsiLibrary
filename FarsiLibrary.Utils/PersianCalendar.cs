@@ -9,7 +9,9 @@ namespace FarsiLibrary.Utils
     /// PersianCalendar calendar. Persian calendar, also named Jalaali calendar, was first based on Solar year by Omar Khayyam, the great Iranian poet, astrologer and scientist.
     /// Jalaali calendar is approximately 365 days. Each of the first six months in the Jalaali calendar has 31 days, each of the next five months has 30 days, and the last month has 29 days in a common year and 30 days in a leap year. A leap year is a year that, when divided by 33, has a remainder of 1, 5, 9, 13, 17, 22, 26, or 30. For example, the year 1370 is a leap year because dividing it by 33 yields a remainder of 17. There are approximately 8 leap years in every 33 year cycle.
     /// </summary>
+#if !NETFX_CORE
     [Serializable]
+#endif
     public sealed class PersianCalendar : Calendar
     {
         #region Fields
@@ -88,10 +90,12 @@ namespace FarsiLibrary.Utils
         /// <summary>
         /// Algorithm Type
         /// </summary>
+#if !NETFX_CORE
         public override CalendarAlgorithmType AlgorithmType
         {
             get { return CalendarAlgorithmType.SolarCalendar; }
         }
+#endif
 
         /// <summary>
         /// Maximum supported date time by this calendar.

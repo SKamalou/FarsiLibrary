@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{680A505C-DB39-49F9-8771-0E668C148E92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FarsiLibrary.Win8.Utils</RootNamespace>
+    <AssemblyName>FarsiLibrary.Win8.Utils</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\FarsiLibrary.Win8.Resources\FarsiLibrary.Win8.Resources.csproj">
+      <Project>{7ef2d5ae-1b7e-4cba-a0b6-13a86577eec0}</Project>
+      <Name>FarsiLibrary.Win8.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\FarsiLibrary.Utils\CultureInfoExtensions.cs">
+      <Link>CultureInfoExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\DateTimeExtensions.cs">
+      <Link>DateTimeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Exceptions\InvalidPersianDateException.cs">
+      <Link>Exceptions\InvalidPersianDateException.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Exceptions\InvalidPersianDateFormatException.cs">
+      <Link>Exceptions\InvalidPersianDateFormatException.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\AbstractTimeUnit.cs">
+      <Link>Formatter\AbstractTimeUnit.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\BasicTimeFormat.cs">
+      <Link>Formatter\BasicTimeFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\Duration.cs">
+      <Link>Formatter\Duration.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\ITimeFormat.cs">
+      <Link>Formatter\ITimeFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\ITimeUnit.cs">
+      <Link>Formatter\ITimeUnit.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\PrettyTime.cs">
+      <Link>Formatter\PrettyTime.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Century.cs">
+      <Link>Formatter\TimeUnits\Century.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Day.cs">
+      <Link>Formatter\TimeUnits\Day.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Decade.cs">
+      <Link>Formatter\TimeUnits\Decade.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Hour.cs">
+      <Link>Formatter\TimeUnits\Hour.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\JustNow.cs">
+      <Link>Formatter\TimeUnits\JustNow.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Millennium.cs">
+      <Link>Formatter\TimeUnits\Millennium.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Millisecond.cs">
+      <Link>Formatter\TimeUnits\Millisecond.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Minute.cs">
+      <Link>Formatter\TimeUnits\Minute.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Month.cs">
+      <Link>Formatter\TimeUnits\Month.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Second.cs">
+      <Link>Formatter\TimeUnits\Second.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Week.cs">
+      <Link>Formatter\TimeUnits\Week.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Formatter\TimeUnits\Year.cs">
+      <Link>Formatter\TimeUnits\Year.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Internals\CollectionHelper.cs">
+      <Link>Internals\CollectionHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Internals\Guard.cs">
+      <Link>Internals\Guard.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Internals\ThemeWrapper.cs">
+      <Link>Internals\ThemeWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\Internals\Utils.cs">
+      <Link>Internals\Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\PersianCalendar.cs">
+      <Link>PersianCalendar.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\PersianCultureInfo.cs">
+      <Link>PersianCultureInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\PersianDate.cs">
+      <Link>PersianDate.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\PersianDateConverter.cs">
+      <Link>PersianDateConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\PersianDateTimeFormatInfo.cs">
+      <Link>PersianDateTimeFormatInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\PersianMonthNames.cs">
+      <Link>PersianMonthNames.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\PersianWeekDayNames.cs">
+      <Link>PersianWeekDayNames.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\toEnglish.cs">
+      <Link>toEnglish.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\toFarsi.cs">
+      <Link>toFarsi.cs</Link>
+    </Compile>
+    <Compile Include="..\FarsiLibrary.Utils\ToWords.cs">
+      <Link>ToWords.cs</Link>
+    </Compile>
+    <Compile Include="DateTimeFormatter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

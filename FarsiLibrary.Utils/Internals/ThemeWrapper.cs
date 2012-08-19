@@ -21,7 +21,7 @@ namespace FarsiLibrary.Utils.Internals
         [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
         private static extern bool IsThemeActive();
 
-        [DllImport("uxtheme.dll", CharSet = CharSet.Auto)]
+        [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
         private static extern int GetCurrentThemeName(StringBuilder pszThemeFileName, int dwMaxNameChars, StringBuilder pszColorBuff, int dwMaxColorChars, StringBuilder pszSizeBuff, int cchMaxSizeChars);
 
         #endregion

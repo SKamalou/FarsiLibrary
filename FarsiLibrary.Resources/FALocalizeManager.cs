@@ -47,7 +47,7 @@ namespace FarsiLibrary.Resources
         /// <returns></returns>
         public BaseLocalizer GetLocalizer()
         {
-            return GetLocalizerByCulture(Thread.CurrentThread.CurrentUICulture);
+            return GetLocalizerByCulture(CultureInfo.CurrentUICulture);
         }
 
         /// <summary>
@@ -163,12 +163,12 @@ namespace FarsiLibrary.Resources
 
         internal bool IsThreadCultureFarsi
         {
-            get { return Thread.CurrentThread.CurrentUICulture.Equals(FarsiCulture); }
+            get { return CultureInfo.CurrentUICulture.Equals(FarsiCulture); }
         }
 
         internal bool IsThreadCultureArabic
         {
-            get { return Thread.CurrentThread.CurrentUICulture.Equals(ArabicCulture); }
+            get { return CultureInfo.CurrentUICulture.Equals(ArabicCulture); }
         }
 
         #endregion

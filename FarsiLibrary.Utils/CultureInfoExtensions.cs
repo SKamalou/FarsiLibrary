@@ -8,12 +8,12 @@ namespace FarsiLibrary.Utils
     {
         public static bool IsFarsiCulture(this CultureInfo culture)
         {
-            return culture.Equals(CultureHelper.FarsiCulture) || culture.Name.Equals("fa", StringComparison.InvariantCultureIgnoreCase);
+            return culture.Equals(CultureHelper.FarsiCulture) || culture.Name.Equals("fa", StringComparison.OrdinalIgnoreCase);
         }
 
         public static bool IsArabicCulture(this CultureInfo culture)
         {
-            return culture.Equals(CultureHelper.ArabicCulture) || culture.Name.Equals("ar", StringComparison.InvariantCultureIgnoreCase);
+            return culture.Equals(CultureHelper.ArabicCulture) || culture.Name.Equals("ar", StringComparison.OrdinalIgnoreCase);
         }
 
         public static bool IsNeutralCulture(this CultureInfo culture)
