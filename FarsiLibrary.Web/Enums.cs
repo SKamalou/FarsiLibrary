@@ -25,7 +25,8 @@ namespace FarsiLibrary.Web
         /// <summary>
         /// Office 2007 theme and style
         /// </summary>
-        Office2007 = 3
+        Office2007 = 3,
+        Office2007 = 4
     }
 
     [Flags]
